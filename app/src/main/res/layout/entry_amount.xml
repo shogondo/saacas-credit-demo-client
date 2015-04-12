@@ -4,9 +4,46 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     android:paddingBottom="@dimen/activity_vertical_margin"
-    tools:context=".MainActivity$PlaceholderFragment">
+    tools:context=".MainActivity$PlaceholderFragment"
+    android:id="@+id/root">
 
-    <TextView android:text="@string/hello_world" android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+    <TextView android:text="@string/please_entry_amount" android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/please_entry_amount_label"
+        android:textSize="24dp"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/yen"
+        android:id="@+id/yen_label"
+        android:layout_toLeftOf="@+id/amount_text"
+        android:layout_alignBottom="@+id/amount_text"
+        android:textSize="48dp" />
+
+    <EditText
+        android:layout_width="384dp"
+        android:layout_height="wrap_content"
+        android:inputType="numberDecimal"
+        android:ems="10"
+        android:id="@+id/amount_text"
+        android:layout_below="@+id/please_entry_amount_label"
+        android:layout_centerHorizontal="true"
+        android:gravity="right"
+        android:layout_alignParentEnd="false"
+        android:layout_alignParentRight="false"
+        android:textSize="48dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="32dp" />
+
+    <Button
+        android:layout_width="128dp"
+        android:layout_height="64dp"
+        android:text="@string/settle"
+        android:id="@+id/settle_button"
+        android:layout_below="@+id/amount_text"
+        android:layout_centerHorizontal="true"
+        android:textSize="32dp" />
 
 </RelativeLayout>
