@@ -19,6 +19,14 @@ android {
     }
 }
 
+repositories {
+    flatDir {
+        dirs 'libs'
+    }
+}
+
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile(name: 'sscsdk-android-usb-1.0.0', ext: 'aar')
+    compile(name: 'saacassdk-android-1.0.0', ext: 'aar')
 }

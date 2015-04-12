@@ -1,4 +1,6 @@
 .gradle
+*.aar
+*.sw?
 /local.properties
 /.idea/workspace.xml
 /.idea/libraries
