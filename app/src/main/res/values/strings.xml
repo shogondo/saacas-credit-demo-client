@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Client</string>
+    <string name="app_name">SA@CASデモ</string>
     <string name="please_entry_amount">金額を入力してください。</string>
     <string name="settle">確定</string>
     <string name="yen">¥</string>
