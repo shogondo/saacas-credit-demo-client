@@ -1,11 +1,9 @@
 <resources>
     <string name="app_name">SA@CASデモ</string>
     <string name="payment_completed">支払いが完了しました。</string>
+    <string name="payment_in_progress">決済を実行しています。しばらくお待ちください。</string>
     <string name="please_entry_amount">金額を入力してください。</string>
     <string name="retry">もう一度デモする</string>
     <string name="settle">確定</string>
     <string name="yen">¥</string>
-
-<!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
