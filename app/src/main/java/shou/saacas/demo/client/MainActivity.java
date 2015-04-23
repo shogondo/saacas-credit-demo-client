@@ -3,8 +3,9 @@ package shou.saacas.demo.client;
 import android.app.Activity;
 import android.os.Bundle;
 
-public class MainActivity extends Activity {
+import jp.atrealize.saacas.ssc.SaacasSSCClient;
 
+public class MainActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -14,5 +15,17 @@ public class MainActivity extends Activity {
                     .add(R.id.container, new EntryAmountFragment())
                     .commit();
         }
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        SaacasSSCClient.getInstance().prepare(this);
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        SaacasSSCClient.getInstance().dispose();
     }
 }
