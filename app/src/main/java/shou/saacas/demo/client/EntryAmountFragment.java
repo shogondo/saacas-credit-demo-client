@@ -7,8 +7,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.TextView;
 
 public class EntryAmountFragment extends Fragment implements PaymentTask.Callback {
+    private TextView amountText;
     private Button settleButton;
 
     private ProgressDialog dialog;
@@ -19,6 +21,7 @@ public class EntryAmountFragment extends Fragment implements PaymentTask.Callbac
 
         dialog = new ProgressDialog(getActivity());
 
+        amountText = (TextView)view.findViewById(R.id.amount_text);
         settleButton = (Button) view.findViewById(R.id.settle_button);
         settleButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -26,9 +29,12 @@ public class EntryAmountFragment extends Fragment implements PaymentTask.Callbac
                 dialog.setMessage(getString(R.string.payment_in_progress));
                 dialog.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
                 dialog.setMax(100);
+                dialog.setProgress(0);
                 dialog.show();
 
-                PaymentTask task = new PaymentTask(EntryAmountFragment.this);
+                int amount = Integer.parseInt(amountText.getText().toString());
+
+                PaymentTask task = new PaymentTask(EntryAmountFragment.this, amount);
                 task.execute();
             }
         });

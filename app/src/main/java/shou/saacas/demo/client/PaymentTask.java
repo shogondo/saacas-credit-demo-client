@@ -2,11 +2,18 @@ package shou.saacas.demo.client;
 
 import android.os.AsyncTask;
 
+import jp.atrealize.saacas.ssc.Packet;
+import jp.atrealize.saacas.ssc.SSCException;
+import jp.atrealize.saacas.ssc.SaacasSSCClient;
+
 public class PaymentTask extends AsyncTask<Integer, Integer, PaymentTask.Result> {
     private Callback callback;
 
-    public PaymentTask(Callback callback) {
+    private int amount;
+
+    public PaymentTask(Callback callback, int amount) {
         this.callback = callback;
+        this.amount = amount;
     }
 
     @Override
@@ -14,12 +21,28 @@ public class PaymentTask extends AsyncTask<Integer, Integer, PaymentTask.Result>
         Result result = new Result();
 
         try {
-            for (int i = 0; i < 5; i++) {
-                Thread.sleep(1000);
-                publishProgress(20);
+            SaacasSSCClient.getInstance().open();
+            publishProgress(25);
+
+            SaacasSSCClient.getInstance().send("0001", String.format("%d;", amount));
+            publishProgress(25);
+
+            while(true) {
+                Packet responsePacket = SaacasSSCClient.getInstance().send("0002", "");
+                if ("0003".equals(responsePacket.getRequestCode())) {
+                    break;
+                }
             }
-        } catch (InterruptedException e) {
+            publishProgress(25);
+
+            SaacasSSCClient.getInstance().send("0004", "");
+            publishProgress(25);
+        }
+        catch (SSCException e) {
             result.error = e;
+        }
+        finally {
+            SaacasSSCClient.getInstance().close();
         }
 
         return result;
