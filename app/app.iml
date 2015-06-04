@@ -85,7 +85,7 @@
     </content>
     <orderEntry type="jdk" jdkName="Android API 21 Platform" jdkType="Android SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" exported="" name="saacassdk-android-1.0.0-" level="project" />
+    <orderEntry type="library" exported="" name="saacassdk-android-1.1.0-" level="project" />
     <orderEntry type="library" exported="" name="sscsdk-android-usb-1.0.0-" level="project" />
   </component>
 </module>
