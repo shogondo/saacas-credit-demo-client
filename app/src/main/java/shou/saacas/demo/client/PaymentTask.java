@@ -35,7 +35,7 @@ public class PaymentTask extends AsyncTask<Integer, Integer, PaymentTask.Result>
             }
             publishProgress(25);
 
-            SaacasSSCClient.getInstance().send("0004", "");
+            SaacasSSCClient.getInstance().send("0004", "", true);
             publishProgress(25);
         }
         catch (SSCException e) {
