@@ -5,6 +5,7 @@ import android.os.AsyncTask;
 import jp.atrealize.saacas.ssc.Packet;
 import jp.atrealize.saacas.ssc.SSCException;
 import jp.atrealize.saacas.ssc.SaacasSSCClient;
+import jp.atrealize.ssc.usb.Logger;
 
 public class PaymentTask extends AsyncTask<Integer, Integer, PaymentTask.Result> {
     private Callback callback;
@@ -39,6 +40,7 @@ public class PaymentTask extends AsyncTask<Integer, Integer, PaymentTask.Result>
             publishProgress(25);
         }
         catch (SSCException e) {
+            Logger.error(e);
             result.error = e;
         }
         finally {
